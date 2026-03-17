@@ -28,12 +28,12 @@ These concepts from the 2023 video remain essential mental models in 2026:
 
 | Concept | Why It Still Matters |
 |---------|---------------------|
-| **Next-token prediction** as the training objective | Still the fundamental mechanism for virtually all LLMs, from tiny local models to frontier systems [[6]] |
+| **Next-token prediction** as the training objective | Still the fundamental mechanism for virtually all LLMs, from tiny local models to frontier systems |
 | **Transformer architecture basics** (attention, layers, embeddings) | Remains the backbone; refinements like sparse attention build *on* this foundation, not replace it |
-| **The 3-stage pipeline**: Pretrain → SFT → RLHF | Still recognizable, though RLHF is now often supplemented or replaced by RLVR for reasoning tasks [[6]] |
+| **The 3-stage pipeline**: Pretrain → SFT → RLHF | Still recognizable, though RLHF is now often supplemented or replaced by RLVR for reasoning tasks |
 | **Parameter count ↔ file size intuition** (e.g., 70B params ≈ 140GB in FP16) | Still true; quantization (4-bit, 2-bit) now enables efficient deployment, but the math hasn't changed |
 | **Security concerns**: prompt injection, jailbreaking, data poisoning | These threats have *evolved*, not disappeared—still critical considerations in 2026 agent systems |
-| **LLMs as "OS-like" orchestrators** | This vision has materialized: agentic workflows now coordinate tools, APIs, and local environments [[6]] |
+| **LLMs as "OS-like" orchestrators** | This vision has materialized: agentic workflows now coordinate tools, APIs, and local environments |
 
 > 💡 **Takeaway**: If you only remember one thing from the video, let it be this: *LLMs are statistical engines trained to predict the next token*. Everything else—reasoning, coding, creativity—emerges from scaling this simple objective.
 
@@ -47,7 +47,7 @@ Here's where the 2023 landscape diverges from 2026 reality. Use this as your "le
 
 **2023 implication**: *"RLHF is the gold standard for aligning LLMs with human preferences."*
 
-**2026 reality**: **Reinforcement Learning from Verifiable Rewards (RLVR)** has emerged as the dominant post-training stage for reasoning tasks [[6]]. Instead of learning from human preference rankings, models now train against *programmatic verifiers*:
+**2026 reality**: **Reinforcement Learning from Verifiable Rewards (RLVR)** has emerged as the dominant post-training stage for reasoning tasks. Instead of learning from human preference rankings, models now train against *programmatic verifiers*:
 
 ```python
 # Simplified RLVR verifier example
@@ -57,9 +57,9 @@ def math_verifier(output: str, ground_truth: float) -> float:
     return 1.0 if abs(predicted - ground_truth) < 0.01 else 0.0
 ```
 
-**Why it matters**: RLVR enables training on math, code, logic, and SQL—domains with objective correctness—without expensive human labeling. Models "spontaneously develop strategies that look like reasoning" by optimizing against these verifiable rewards [[6]].
+**Why it matters**: RLVR enables training on math, code, logic, and SQL—domains with objective correctness—without expensive human labeling. Models "spontaneously develop strategies that look like reasoning" by optimizing against these verifiable rewards.
 
-**Caveat**: RLVR works only where ground truth exists. For creative writing, brand voice, or nuanced argumentation, human preference data (RLHF/DPO) remains superior [[6]].
+**Caveat**: RLVR works only where ground truth exists. For creative writing, brand voice, or nuanced argumentation, human preference data (RLHF/DPO) remains superior.
 
 ---
 
@@ -67,7 +67,7 @@ def math_verifier(output: str, ground_truth: float) -> float:
 
 **2023 implication**: *"Scale parameters and data, and capability follows."*
 
-**2026 reality**: While scale still matters, **inference-time compute** has become a first-class knob for capability [[6]]. Models like OpenAI o3 and DeepSeek-R1 generate longer "reasoning traces" at test time, effectively "thinking longer" to solve harder problems.
+**2026 reality**: While scale still matters, **inference-time compute** has become a first-class knob for capability. Models like OpenAI o3 and DeepSeek-R1 generate longer "reasoning traces" at test time, effectively "thinking longer" to solve harder problems.
 
 ```text
 Before (2023 mindset):
@@ -87,7 +87,7 @@ After (2026 mindset):
 
 **2023 implication**: *"LLMs are primarily chat interfaces."*
 
-**2026 reality**: The most transformative applications run **on your computer**, not in a browser. Tools like Claude Code demonstrate a new paradigm: persistent, environment-aware agents that operate on `localhost` with access to your files, terminals, and context [[6]].
+**2026 reality**: The most transformative applications run **on your computer**, not in a browser. Tools like Claude Code demonstrate a new paradigm: persistent, environment-aware agents that operate on `localhost` with access to your files, terminals, and context.
 
 ```bash
 # 2023: You chat with a web UI
@@ -98,7 +98,7 @@ $ claude-code "Fix the authentication bug in src/auth/"
 # → Agent reads code, runs tests, proposes fix, waits for approval
 ```
 
-**Why localhost matters**: Low-latency interaction, private context, and seamless tool access create a qualitatively different experience than cloud-based chat [[6]].
+**Why localhost matters**: Low-latency interaction, private context, and seamless tool access create a qualitatively different experience than cloud-based chat.
 
 ---
 
@@ -107,15 +107,15 @@ $ claude-code "Fix the authentication bug in src/auth/"
 | 2023 Statement | 2026 Update |
 |---------------|-------------|
 | *"Multimodality is emerging"* | **Native multimodal models** (text+image+audio+video in one architecture) are now baseline for frontier systems |
-| *"Open-source lags behind"* | **Open-weight models** (DeepSeek, Qwen, Llama) now rival proprietary ones on many benchmarks—and enable fine-tuning at scale [[31]] |
-| *"Benchmarks measure general capability"* | **"Jagged intelligence"** means models can ace benchmarks while failing simple tasks; benchmarking is now viewed skeptically [[6]] |
+| *"Open-source lags behind"* | **Open-weight models** (DeepSeek, Qwen, Llama) now rival proprietary ones on many benchmarks—and enable fine-tuning at scale |
+| *"Benchmarks measure general capability"* | **"Jagged intelligence"** means models can ace benchmarks while failing simple tasks; benchmarking is now viewed skeptically |
 | *"Security = prompt injection"* | **Agent security** now includes code execution sandboxing, tool authorization, and stateful attack surfaces |
 
 ---
 
 ## 🎭 The "Ghosts vs. Animals" Lens
 
-One of Karpathy's most provocative 2025 insights reframes how we think about LLM intelligence [[6]]:
+One of Karpathy's most provocative 2025 insights reframes how we think about LLM intelligence:
 
 > *"We're not 'evolving/growing animals', we are 'summoning ghosts'."*
 
@@ -138,19 +138,19 @@ LLM intelligence:    █░░░░░░█░█  (spiky: brilliant in some a
 Use these prompts to deepen your understanding or spark discussion:
 
 ### 🔬 Technical Curiosity
-1. *"If RLVR trains models on verifiable rewards (math, code), what domains are still 'unverifiable'—and how do we align models there?"* [[6]]
-2. *"Recent research suggests RLVR gains may be 'search compression' rather than expanded reasoning. How do we measure what we're actually getting?"* [[6]]
+1. *"If RLVR trains models on verifiable rewards (math, code), what domains are still 'unverifiable'—and how do we align models there?"*
+2. *"Recent research suggests RLVR gains may be 'search compression' rather than expanded reasoning. How do we measure what we're actually getting?"*
 3. *"With context windows now at 1M+ tokens, is RAG still necessary—or has long-context attention solved retrieval?"*
 
 ### 🌍 Societal & Practical Reflection
-4. *"If LLM intelligence is 'jagged,' how should we design systems that account for unpredictable capability spikes?"* [[6]]
-5. *"Vibe coding lets anyone build software with natural language. What happens to the role of 'professional developer' when code generation is commoditized?"* [[6]]
-6. *"If text chat is the '1980s CLI' of AI, what might the 'Windows/Mac OS' of AI look like?"* [[6]]
+4. *"If LLM intelligence is 'jagged,' how should we design systems that account for unpredictable capability spikes?"*
+5. *"Vibe coding lets anyone build software with natural language. What happens to the role of 'professional developer' when code generation is commoditized?"*
+6. *"If text chat is the '1980s CLI' of AI, what might the 'Windows/Mac OS' of AI look like?"*
 
 ### 🔮 Forward-Looking Challenges
 7. *"Security in 2023 focused on prompt injection. In 2026, with agents that can execute code and access systems—what does 'safe autonomy' actually mean?"*
-8. *"Open-weight models now match proprietary ones. Does this democratize AI—or fragment safety standards?"* [[31]]
-9. *"If benchmarking is broken, how *should* we evaluate whether an LLM is 'ready' for high-stakes use?"* [[6]]
+8. *"Open-weight models now match proprietary ones. Does this democratize AI—or fragment safety standards?"*
+9. *"If benchmarking is broken, how *should* we evaluate whether an LLM is 'ready' for high-stakes use?"*
 
 ### 🧭 Personal Learning Path
 10. *"Want to go deeper? Try: (a) fine-tuning a small open model on your data, (b) building a local agent with Ollama + MCP, or (c) experimenting with RLVR-style rewards on a coding task."*
@@ -179,26 +179,26 @@ ollama run llama3.2:1b "Explain next-token prediction in one sentence"
 | [nanoGPT](https://github.com/karpathy/nanoGPT) | Karpathy's minimal GPT training code—perfect companion to the video |
 | [Promptfoo RLVR Guide](https://www.promptfoo.dev/blog/rlvr-explained/) | Practical guide to implementing verifiable rewards |
 | [Ollama + MCP Tutorial](https://modelcontextprotocol.io/) | Build localhost agents with tool access |
-| [Open LLM Leaderboard (2026)](https://awesomeagents.ai/leaderboards/open-source-llm-leaderboard/) | Compare open-weight models on current benchmarks [[32]] |
+| [Open LLM Leaderboard (2026)](https://awesomeagents.ai/leaderboards/open-source-llm-leaderboard/) | Compare open-weight models on current benchmarks |
 
 ---
 
 ## 📚 Further Reading & Citations
 
 ### Primary Sources
-- Karpathy, A. (2025). *[2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/)* [[6]]
+- Karpathy, A. (2025). *[2025 LLM Year in Review](https://karpathy.bearblog.dev/year-in-review-2025/)*
 - Karpathy, A. (2023). *[Intro to Large Language Models](https://www.youtube.com/watch?v=zjkBMFhNj_g)* (Video)
 
 ### RLVR & Reasoning
-- "Reinforcement Learning with Verifiable Rewards Makes Models Faster, Not Smarter" – Promptfoo [[6]]
-- "Reasoning LLMs Are Just Efficient Samplers" – Tsinghua Research (2025) [[6]]
+- "Reinforcement Learning with Verifiable Rewards Makes Models Faster, Not Smarter" – Promptfoo
+- "Reasoning LLMs Are Just Efficient Samplers" – Tsinghua Research (2025)
 
 ### Open Models & Benchmarks
-- "Open Source LLM Leaderboard: February 2026" – Awesome Agents [[32]]
-- "Best Open Source LLMs 2026" – WhatLLM [[31]]
+- "Open Source LLM Leaderboard: February 2026" – Awesome Agents
+- "Best Open Source LLMs 2026" – WhatLLM
 
 ### Agent Frameworks
-- "Top LLM Frameworks for Building AI Agents in 2026" – Second Talent [[21]]
+- "Top LLM Frameworks for Building AI Agents in 2026" – Second Talent
 - Model Context Protocol (MCP) Documentation – Anthropic
 
 ---
