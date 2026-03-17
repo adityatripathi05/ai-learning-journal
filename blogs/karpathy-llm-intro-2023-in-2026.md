@@ -217,5 +217,3 @@ The field moves fast. But the foundations? Those are worth revisiting.
 
 *Disclaimer: This post reflects the author's interpretation of public sources. It is not affiliated with Andrej Karpathy, OpenAI, Anthropic, or any mentioned organization.*
 ```
-
----
